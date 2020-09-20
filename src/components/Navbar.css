@@ -1,0 +1,43 @@
+
+.main-navbar {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+    background-color: black !important;
+    border: none;
+}
+
+.nav-link-color {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.nav-link-color:hover {
+        color: gold !important    
+}
+
+.text-color-change:hover {
+    color: goldenrod;
+}
+
+.remove-bottom {
+    margin-top: 30px;
+}
+
+.remove-bottom-right {
+    margin-top: 22px;
+}
+
+.main-container {
+}
+
+
+/*#home-link {
+
+    color:aqua;
+}*/
+#navbar-main {
+    background-color: black !important;
+}
+
+@media screen and (max-width: 768px) {
+}

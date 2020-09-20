@@ -1,0 +1,23 @@
+.button-equaling {
+    width:240px;
+}
+
+/*main container for information*/
+.register-banner {
+    height:220px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+/*inside container*/
+.register-banner-info {
+    padding: 10px;
+    height:180px;
+}
+
+.inner-container {
+    margin:50px 20px;
+
+}
+
+.

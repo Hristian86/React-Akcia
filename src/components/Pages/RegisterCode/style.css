@@ -1,0 +1,35 @@
+.background-image-register {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background-register-form {
+    background-color:#fff!important;
+}
+
+.register-banner-info {
+    background-repeat:no-repeat!important;
+    background-size:cover!important;
+}
+
+/*dont touch this*/
+.js-fh5co-nav-toggle {
+    display:none;
+}
+#fh5co-offcanvas {
+    display:none;
+}
+/*dont touch this*/
+
+.success-register {
+    height:260px;
+}
+
+@media screen and (max-width: 768px) {
+    .form-mobile {
+        margin-top:16px;
+    }
+
+    .picture-mobile {
+        margin-top:12px;
+    }
+}
