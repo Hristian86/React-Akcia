@@ -3,8 +3,7 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Auth",
-    "\\src\\components\\Auth\\Admin",
+    "\\src\\components\\BaseUrl",
     "\\src\\components\\Pages",
     "\\src\\components\\Pages\\RegisterCode",
     "\\src\\components\\QueryService",
@@ -12,6 +11,6 @@
     "\\src\\components\\QueryService\\GetQuery",
     "\\src\\components\\Validations"
   ],
-  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
+  "SelectedNode": "\\src\\components\\Pages\\RegisterCode\\register.js",
   "PreviewInSolutionExplorer": false
 }

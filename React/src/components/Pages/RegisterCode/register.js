@@ -13,7 +13,8 @@ export default class Register extends Component {
             dateValid: false,
             codeValid: false,
             lettersEmail: 0,
-            lettersPrice: 0
+            lettersPrice: 0,
+            submitButton: "btn btn-warning disabled"
         }
     }
 
@@ -146,6 +147,18 @@ export default class Register extends Component {
                 emailValid: true
             });
         }
+
+        setTimeout(() => {
+            if (this.state.emailValid && this.state.codeValid && this.state.priceValid && this.state.dateValid) {
+                this.setState({
+                    submitButton: "btn btn-primary"
+                })
+            } else {
+                this.setState({
+                    submitButton: "btn btn-warning disabled"
+                })
+            }
+        }, 100);
     }
 
     priceHandler = (e) => {
@@ -173,6 +186,18 @@ export default class Register extends Component {
                 priceValid: true
             });
         }
+
+        setTimeout(() => {
+            if (this.state.emailValid && this.state.codeValid && this.state.priceValid && this.state.dateValid) {
+                this.setState({
+                    submitButton: "btn btn-primary"
+                })
+            } else {
+                this.setState({
+                    submitButton: "btn btn-warning disabled"
+                })
+            }
+        }, 100);
     }
 
     dateHandler = (e) => {
@@ -198,6 +223,19 @@ export default class Register extends Component {
                 dateValid: true
             });
         }
+
+
+        setTimeout(() => {
+            if (this.state.emailValid && this.state.codeValid && this.state.priceValid && this.state.dateValid) {
+                this.setState({
+                    submitButton: "btn btn-primary"
+                })
+            } else {
+                this.setState({
+                    submitButton: "btn btn-warning disabled"
+                })
+            }
+        }, 100);
     }
 
 
@@ -224,6 +262,18 @@ export default class Register extends Component {
                 codeValid: true
             });
         }
+
+        setTimeout(() => {
+            if (this.state.emailValid && this.state.codeValid && this.state.priceValid && this.state.dateValid) {
+                this.setState({
+                    submitButton: "btn btn-primary"
+                })
+            } else {
+                this.setState({
+                    submitButton: "btn btn-warning disabled"
+                })
+            }
+        }, 100);
     }
 
     render() {
@@ -248,37 +298,37 @@ export default class Register extends Component {
 
 
                     <div className="col-md-12">
-                        <label >Email * {this.state.lettersEmail} - <span id="email" className="text-danger"></span></label>
+                        <h6 style={{ 'float': 'left', 'marginBottom': '2px', 'paddingBottom': '0px' }}>Email * {this.state.lettersEmail} - <span id="email" className="text-danger"></span></h6>
                         <div className="form-group">
                             <input className="form-control" placeholder="Имейл адрес *" onChange={this.emailHandler} name="email" type="text" maxLength="80" />
                         </div>
                     </div>
 
-                    <div className="col-md-12">
-                        <label >Дата на касовата бележка *  {this.state.lettersDate} - <span id="date" className="text-danger"></span></label>
+                    <div className="col-md-4">
+                        <h6 style={{ 'float': 'left', 'marginBottom': '2px', 'paddingBottom': '0px', 'height': '26px' }}>Дата на касовата бележка *  {this.state.lettersDate} - <br /><span id="date" className="text-danger"></span></h6>
                         <div className="form-group">
                             <input className="form-control" placeholder="Дата на касовата бележка *" name="date" type="date" onChange={this.dateHandler} />
                         </div>
                     </div>
 
-                    <div className="col-md-12">
-                        <label >Самата стойност, например: " 27 " или " 14.04 " * {this.state.lettersPrice} - <span id="price" className="text-danger"></span></label>
+                    <div className="col-md-8">
+                        <h6 style={{ 'float': 'left', 'marginBottom': '2px', 'paddingBottom': '0px', 'height': '26px' }}>Самата стойност, например: " 27 " или " 14.04 " * {this.state.lettersPrice} - <br /><span id="price" className="text-danger"></span></h6>
                         <div className="form-group">
                             <input className="form-control" placeholder="Стойност на покупката *" onChange={this.priceHandler} name="price" type="" maxLength="10" />
                         </div>
                     </div>
 
                     <div className="col-md-12">
-                        <label >Номер на касовата бележка * {this.state.lettersCode} - <span id="registerCode" className="text-danger"></span></label>
+                        <h6 style={{ 'float': 'left', 'marginBottom': '2px', 'paddingBottom': '0px' }}>Номер на касовата бележка * {this.state.lettersCode} - <span id="registerCode" className="text-danger"></span></h6>
                         <div className="form-group">
-                            <input className="form-control" placeholder="Номер на касовата бележка *" name="registerCode" type="number" onChange={this.codeHandler} />
+                            <input className="form-control" placeholder="Номер на касовата бележка *" name="registerCode" type="number" min="0" onChange={this.codeHandler} />
                         </div>
                     </div>
 
 
                     <div className="col-md-12">
                         <div className="form-group">
-                            {this.state.loading ? <em>Loading...</em> : <input value="Register code" className="btn btn-primary" type="submit" />}
+                            {this.state.loading ? <em>Loading...</em> : <input value="Register code" className={this.state.submitButton} type="submit" />}
                             <span className="text-danger" id="errorHolder"></span>
                         </div>
                     </div>
