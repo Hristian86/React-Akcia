@@ -32,8 +32,8 @@ export default class Contact extends Component {
                                 <h3>За връзка.</h3>
                                 <ul className="contact-info">
                                     <li><i className="icon-map"></i>София</li>
-                                    <li><i className="icon-phone"></i>+ 1235 2355 98</li>
-                                    <li><i className="icon-envelope"></i><a href="#">info@yoursite.com</a></li>
+                                   
+                                    <li><i className="icon-envelope"></i><a href="#">sweety.cons@mail.bg</a></li>
                                     <li><i className="icon-globe"></i><a href="#">www.yoursite.com</a></li>
                                 </ul>
                             </div>

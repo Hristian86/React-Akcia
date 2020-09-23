@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 import CreateQuery from '../../QueryService/CreateQuery/CreateQuery';
 import { validatePrice, validateEmail } from '../../Validations/EmailValidations';
+import Loader from '../Home/PromotionLoader/Loader';
 
 export default class Register extends Component {
     constructor(props) {
@@ -31,30 +32,32 @@ export default class Register extends Component {
 
         if (this.state.emailValid && this.state.codeValid && this.state.priceValid && this.state.dateValid) {
 
-            console.log(this.state.emailValid);
-            console.log(this.state.priceValid);
-            console.log(this.state.dateValid);
-            console.log(this.state.codeValid);
+            //console.log(this.state.emailValid);
+            //console.log(this.state.priceValid);
+            //console.log(this.state.dateValid);
+            //console.log(this.state.codeValid);
 
-            console.log(registerCode);
-            console.log(date);
-            console.log(email);
-            console.log(price);
+            //console.log(registerCode);
+            //console.log(date);
+            //console.log(email);
+            //console.log(price);
 
             const query = new CreateQuery();
-            let result = "";
-
-
-            result = await query.Create(registerCode, date, email, price);
+            let result = await query.Create(registerCode, date, email, price);
 
             if (result.message === "created") {
                 this.setState({
                     registerSuccess: true
                 });
+
+                //console.log(result);
             } else {
                 this.setState({
                     loading: false
                 });
+
+                //console.log(result);
+
                 let res = result.error.split(",");
 
                 const error = document.getElementById('errorHolder');
@@ -63,6 +66,9 @@ export default class Register extends Component {
                 const errs = res.map(data => {
                     if (data === "server error") {
                         server_error = true;
+                        this.setState({
+                            server_problem: true
+                        });
                     }
                     error.innerHTML += `${data}<br/>`;
                 })
@@ -283,8 +289,20 @@ export default class Register extends Component {
                 <br />
                 <br />
 
-                <h1>
+                <h1 className="text-success">
                     Successfully registered
+                </h1>
+            </div>)
+        }
+
+        if (this.state.server_problem) {
+            return (<div className="success-register">
+                <br />
+                <br />
+                <br />
+
+                <h1 className="text-danger">
+                    Server not responding!
                 </h1>
             </div>)
         }
@@ -328,7 +346,7 @@ export default class Register extends Component {
 
                     <div className="col-md-12">
                         <div className="form-group">
-                            {this.state.loading ? <em>Loading...</em> : <input value="Register code" className={this.state.submitButton} type="submit" />}
+                            {this.state.loading ? <Loader /> : <input value="Register code" className={this.state.submitButton} type="submit" />}
                             <span className="text-danger" id="errorHolder"></span>
                         </div>
                     </div>

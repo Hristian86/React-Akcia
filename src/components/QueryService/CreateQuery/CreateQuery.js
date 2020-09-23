@@ -14,13 +14,27 @@ export default class CreateQuery extends Component {
                 "code": registerCode
             }
 
-            const result = await fetch(url("registercode"), {
+
+            const result = await fetch(url("RegisterCodeModels"), {
                 "method": "POST",
                 "headers": {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }, body: JSON.stringify(payload)
-            }).then(res => res.json());
+            }).then(res => res.json()).catch(err => {
+                const result = {
+                    error: 'server error'
+                }
+                return result;
+            });
+
+            //const result = await fetch(url("registercode"), {
+            //    "method": "POST",
+            //    "headers": {
+            //        'Accept': 'application/json',
+            //        'Content-Type': 'application/json'
+            //    }, body: JSON.stringify(payload)
+            //}).then(res => res.json());
 
             if (await result) {
                 return result;
@@ -29,7 +43,7 @@ export default class CreateQuery extends Component {
         } catch (e) {
             const result = {
                 error: 'server error'
-            }
+            }   
             return result;
         }
     }

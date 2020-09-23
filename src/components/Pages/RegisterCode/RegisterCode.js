@@ -1,14 +1,20 @@
 ﻿import React, { Component } from 'react';
 import './style.css';
 import Register from './register';
+import Winner from '../Winners/Winners';
+import setCookie from '../../Cookies/SetCookie';
+import getCookie from '../../Cookies/GetCookie';
 
 export default class RegisterCode extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            register: 'btn btn-primary with-arrow-clicked button-equaling',
-            regClicked: true
+            register: 'btn btn-primary with-arrow button-equaling',
+            winnerButton: "btn btn-success with-arrow button-equaling",
+            regClicked: true,
+            header1: "Участвай в",
+            header2: " промоцията"
         }
     }
 
@@ -28,6 +34,39 @@ export default class RegisterCode extends Component {
         })
     }
 
+    componentDidMount() {
+        this.winnersCheck();
+    }
+
+    winnersCheck = () => {
+        const winnersLink = getCookie("winners");
+        if (winnersLink === "yes") {
+            this.winnersHandle();
+            setCookie("winners", null, -1);
+        } else {
+            this.registerHandle();
+            setCookie("winners", null, -1);
+        }
+    }
+
+    winnersHandle = () => {
+        this.setState({
+            winners: true,
+            header1: "Победители от",
+            register: 'btn btn-primary with-arrow button-equaling',
+            winnerButton: "btn btn-success with-arrow-clicked button-equaling"
+        });
+    }
+
+    registerHandle = () => {
+        this.setState({
+            winners: false,
+            header1: "Участвай в",
+            register: 'btn btn-primary with-arrow-clicked button-equaling',
+            winnerButton: "btn btn-success with-arrow button-equaling"
+        });
+    }
+
     render() {
 
         return (
@@ -38,7 +77,7 @@ export default class RegisterCode extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 animate-box">
-                                <h1 className="text-left"><span className="colored">Участвай в</span> играта</h1>
+                                <h1 className="text-left"><span className="colored">{this.state.header1}</span>{this.state.header2}</h1>
                             </div>
                         </div>
                     </div>
@@ -51,7 +90,7 @@ export default class RegisterCode extends Component {
                             <div className="col-md-3">
 
                                 <div id="registerButton">
-                                    <h3 className="btn btn-primary with-arrow button-equaling" id="registerButton" >
+                                    <h3 className={this.state.register} id="registerButton" onClick={this.registerHandle}>
                                         Регистриране.<i className="icon-arrow-right"></i>
                                     </h3>
                                 </div>
@@ -59,7 +98,7 @@ export default class RegisterCode extends Component {
                                 <hr />
 
                                 <div id="winnersButton">
-                                    <h3 className="btn btn-success with-arrow button-equaling" >
+                                    <h3 className={this.state.winnerButton} onClick={this.winnersHandle}>
                                         Победители.<i className="icon-arrow-right"></i>
                                     </h3>
                                 </div>
@@ -68,15 +107,15 @@ export default class RegisterCode extends Component {
                                 <hr />
 
                                 <div id="conditionsButton">
-                                    <h3 className="btn btn-warning with-arrow button-equaling" >
+                                    <a className="conditions-style-button" target="_blank" href="https://drive.google.com/file/d/0B2P0uSvJQPtYazdDY2RrUV9OWmM/view?usp=sharing"><h3 className="btn btn-warning with-arrow button-equaling" >
                                         Условия.<i className="icon-arrow-right"></i>
-                                    </h3>
+                                    </h3></a>
                                 </div>
 
                                 <hr />
                             </div>
 
-                            <div className="col-md-8 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+                            {this.state.winners ? <Winner /> : <div className="col-md-8 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
 
 
                                 <div id="displayResultsId"></div>
@@ -109,7 +148,7 @@ export default class RegisterCode extends Component {
 
 
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>

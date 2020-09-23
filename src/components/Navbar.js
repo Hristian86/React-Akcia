@@ -65,64 +65,68 @@ export default class navbar extends Component {
     //    this.language();
     //}
 
-    componentDidMount() {
-        this.cookieUser();
-    }
+    //componentDidMount() {
+    //    this.cookieUser();
+    //}
 
-    cookieUser = async () => {
-        //const userCheckOnStart = await getUserByToken();
-        //if (userCheckOnStart.error) {
-        //    //console.log(userCheckOnStart);
-        //    this.setState({
-        //        user: null,
-        //        isLoged: false
-        //    });
-        //    return;
-        //}
+    //cookieUser = async () => {
+    //    //const userCheckOnStart = await getUserByToken();
+    //    //if (userCheckOnStart.error) {
+    //    //    //console.log(userCheckOnStart);
+    //    //    this.setState({
+    //    //        user: null,
+    //    //        isLoged: false
+    //    //    });
+    //    //    return;
+    //    //}
         
-        const currentUser = getCookie("user");
-        const userName = getCookie("user_name");
-        const cookieChek = getCookie("cheked");
+    //    const currentUser = getCookie("user");
+    //    const userName = getCookie("user_name");
+    //    const cookieChek = getCookie("cheked");
 
-        const token = getCookie("token");
+    //    const token = getCookie("token");
 
-        if (userName === null || userName === undefined || userName === "") {
-            if (currentUser && cookieChek === "") {
-                const user = await getUserByToken();
+    //    if (userName === null || userName === undefined || userName === "") {
+    //        if (currentUser && cookieChek === "") {
+    //            const user = await getUserByToken();
 
-                if (await user.displayName !== undefined) {
-                    if (user.displayName.length > 2) {
-                        setCookie("user_name", user.displayName, 5);
-                    }
-                }
-                if (await user.error) {
-                    console.log(user.error);
-                }
-                setCookie("cheked", "cheked", 5);
-            }
-        }
+    //            if (await user.displayName !== undefined) {
+    //                if (user.displayName.length > 2) {
+    //                    setCookie("user_name", user.displayName, 5);
+    //                }
+    //            }
+    //            if (await user.error) {
+    //                console.log(user.error);
+    //            }
+    //            setCookie("cheked", "cheked", 5);
+    //        }
+    //    }
 
-        const currUserName = getCookie("user_name");
-        //To Do : add loged user to redux global state
-        if (currentUser) {
-            if (currUserName) {
-                this.setState({
-                    user: currUserName,
-                    isLoged: true
-                });
-            } else {
-                this.setState({
-                    user: currentUser,
-                    isLoged: true
-                });
-            }
-        } else {
-            this.setState({
-                user: null,
-                isLoged: false
-            });
-        }
-        console.log(currentUser);
+    //    const currUserName = getCookie("user_name");
+    //    //To Do : add loged user to redux global state
+    //    if (currentUser) {
+    //        if (currUserName) {
+    //            this.setState({
+    //                user: currUserName,
+    //                isLoged: true
+    //            });
+    //        } else {
+    //            this.setState({
+    //                user: currentUser,
+    //                isLoged: true
+    //            });
+    //        }
+    //    } else {
+    //        this.setState({
+    //            user: null,
+    //            isLoged: false
+    //        });
+    //    }
+    //    console.log(currentUser);
+    //}
+
+    winnersCookieSet = () => {
+        setCookie("winners", "yes", 1);
     }
 
     prevDef(e) {
@@ -134,8 +138,9 @@ export default class navbar extends Component {
 
         if (true) {
             return (
-                <nav className="navbar navbar-default main-navbar">
-                    <div className="container main-container">
+                <nav className="navbar navbar-default main-navbar" >
+                    <div className="container main-container" id="fh5co-header">
+                        <div className="container main-container">
     
     <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -146,7 +151,7 @@ export default class navbar extends Component {
                             </button>
 
 
-                            <h1 className="remove-bottom"><a className="nav-link-color" href="/" id="logo">Sweety <span className="text-color-change">Cons</span></a></h1>
+                            <h1 className="remove-bottom" style={{'marginTop':'28px'}}><a className="nav-link-color" href="/" id="logo">Sweety <span className="text-color-change">Cons</span></a></h1>
                         </div>
 
     <div className="collapse navbar-collapse remove-bottom-right" id="bs-example-navbar-collapse-1">
@@ -157,20 +162,26 @@ export default class navbar extends Component {
                             
                             <ul className="nav navbar-nav navbar-right">
 
-                                {/*<li className="cta"><a href="/registercode" className="nav-link-color">Активни промоции</a></li>*/}
-                                <li className="call"><a href="tel://123456789" className="nav-link-color"><i className="icon-phone nav-link-color"></i> +1 123 456 789</a></li>
-                                <li className="cta"><a href="/Contact" className="nav-link-color">За връзка</a></li>
+                                <li className="cta"><h3 className="h3-container"><a href="/registercode" className="nav-link-color links-size">Активни промоции</a></h3></li>
+                                {/*<li className="call"><a href="tel://123456789" className="nav-link-color"><i className="icon-phone nav-link-color"></i> +1 123 456 789</a></li>*/}
 
-                                {this.state.isLoged ? <li className="cta"><a href="/AdminPage" className="nav-link-color">AdminPage</a></li> : null}
+
+                                    <li className="cta"><h3 className="h3-container"><a href="/RegisterCode" onClick={this.winnersCookieSet} className="nav-link-color links-size">Победители</a></h3> </li>
+
+                                    <li className="cta"><h3 className="h3-container"><a href="/Contact" className="nav-link-color links-size">За връзка</a></h3></li>
+
+
+                                {/*{this.state.isLoged ? <li className="cta"><a href="/AdminPage" className="nav-link-color">AdminPage</a></li> : null}
 
                                 {this.state.isLoged ? null : <li className="cta"><a href="/login" className="nav-link-color">Login</a></li>}
 
                                 {this.state.user ? <li className="cta"><a className="nav-link-color">Logged as {this.state.user}</a></li> : null}
 
-                                {this.state.isLoged ? <li className="cta"><a href="/Logout" className="nav-link-color">Logout</a></li> : null}
+                                {this.state.isLoged ? <li className="cta"><a href="/Logout" className="nav-link-color">Logout</a></li> : null}*/}
                                     
                                 </ul>
-    </div>
+                            </div>
+                        </div>
   </div>
 </nav>
                 )

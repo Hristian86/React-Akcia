@@ -24,6 +24,11 @@
     height:260px;
 }
 
+.conditions-style-button {
+    color: white!important;
+    text-decoration:none!important;
+}
+
 @media screen and (max-width: 768px) {
     .form-mobile {
         margin-top:16px;

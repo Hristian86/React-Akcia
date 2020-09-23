@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
+    "\\public\\images",
     "\\src",
     "\\src\\components",
     "\\src\\components\\BaseUrl",
     "\\src\\components\\Pages",
-    "\\src\\components\\Pages\\RegisterCode",
-    "\\src\\components\\QueryService",
-    "\\src\\components\\QueryService\\CreateQuery",
-    "\\src\\components\\QueryService\\GetQuery",
-    "\\src\\components\\Validations"
+    "\\src\\components\\Pages\\Home",
+    "\\src\\components\\Pages\\Home\\header-no-promotion-comp",
+    "\\src\\components\\Pages\\Home\\Slider"
   ],
-  "SelectedNode": "\\src\\components\\Pages\\RegisterCode\\register.js",
+  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
   "PreviewInSolutionExplorer": false
 }

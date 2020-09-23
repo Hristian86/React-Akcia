@@ -16,6 +16,7 @@ import Policy from './Pages/Policy/Policy';
 import login from './Auth/LogIn';
 import AdminPage from './Auth/Admin/AdminPage';
 import Logout from './Auth/Logout';
+import Winner from './Pages/Winners/Winners';
 
 export default class Context extends Component {
         
@@ -34,17 +35,20 @@ export default class Context extends Component {
                         <Route exact path="/Contact" component={Contact}>
                         </Route>
 
+                        <Route exact path="/Winner:id?" component={Winner}>
+                        </Route>
+
                         <Route exact path="/Policy" component={Policy}>
                         </Route>
 
-                        <Route exact path="/Logout" component={Logout}>
+                        {/*<Route exact path="/Logout" component={Logout}>
                         </Route>
 
                         <Route exact path="/LogIn" component={login}>
                         </Route>
 
                         <Route exact path="/AdminPage" component={AdminPage}>
-                        </Route>
+                        </Route>*/}
 
                         <Route path="*" component={NotFound} />
 

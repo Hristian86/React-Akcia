@@ -44,6 +44,7 @@ text-shadow: 0px 2px 2px rgba(0,0,0,0.4),
 
 .header-no-promotion {
     height: 400px;
+    /*background-color:white;*/
     background: url(/images/oven-bread5.jpg)no-repeat fixed;
     background-size: cover;
     background-position-y:-200px;
@@ -55,5 +56,9 @@ text-shadow: 0px 2px 2px rgba(0,0,0,0.4),
         background: url(/images/oven-bread5.jpg)no-repeat fixed;
         background-size: cover;
         background-position-y: -200px;
+    }
+
+    #mobile-head {
+        height:1150px!important;
     }
 }
