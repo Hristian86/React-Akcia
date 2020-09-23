@@ -29,7 +29,7 @@ export default class Home extends Component {
     getPromos = async () => {
         const query = new GetQuery();
         const result = await query.getPromotions();
-        console.log(await result.error);
+        //console.log(await result.error);
         if (await result.error) {
             setTimeout(() => {
                 this.setState({
@@ -56,6 +56,12 @@ export default class Home extends Component {
     //}
 
     render() {
+        //if (this.state.data) {
+        //    console.log(this.state.data[0]);
+        //    console.log(this.state.data[0].promotion_status);
+        //    console.log(this.state.data[0].tittle);
+
+        //}
 
         return (
             <div id="fh5co-page">
@@ -94,7 +100,7 @@ export default class Home extends Component {
 
                 {this.state.loading ? <PromotionLoader error={this.state.error ? this.state.error : null} /> : null}
 
-                {this.state.promo ? <PromotionsHead /> : null}
+                {this.state.promo ? <PromotionsHead data={this.state.data} /> : null}
 
                 {this.state.promo ? <div className="fh5co-section-with-image">
 

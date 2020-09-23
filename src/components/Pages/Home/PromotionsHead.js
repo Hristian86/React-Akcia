@@ -9,7 +9,7 @@ const PromotionsHead = (props) => {
                 <div className="col-md-6 col-md-offset-3 text-center fh5co-heading animate-bo" data-animate-effect="fadeIn">
                     <h2>Активни промоции</h2>
                     
-                    <p>{props.data ? props.data.title : <em>Opps</em>}</p>
+                    <div>{props.data ? <p>{props.data[0].tittle}  {props.data[0].promotion_status} </p> : <em>Opps</em>}</div>
                 </div>
             </div>
         </div>

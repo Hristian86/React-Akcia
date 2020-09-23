@@ -9,8 +9,9 @@
     "\\src\\components\\Pages",
     "\\src\\components\\Pages\\Home",
     "\\src\\components\\Pages\\Home\\header-no-promotion-comp",
-    "\\src\\components\\Pages\\Home\\Slider"
+    "\\src\\components\\Pages\\Home\\Slider",
+    "\\src\\components\\Pages\\RegisterCode"
   ],
-  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
+  "SelectedNode": "\\src\\components\\Pages\\RegisterCode\\register.js",
   "PreviewInSolutionExplorer": false
 }

@@ -282,6 +282,11 @@ export default class Register extends Component {
         }, 100);
     }
 
+    priceTag = (e) => {
+        e.preventDefault();
+        return 1;
+    }
+
     render() {
         if (this.state.registerSuccess) {
             return (<div className="success-register">
@@ -332,7 +337,7 @@ export default class Register extends Component {
                     <div className="col-md-8">
                         <h6 style={{ 'float': 'left', 'marginBottom': '2px', 'paddingBottom': '0px', 'height': '26px' }}>Самата стойност, например: " 27 " или " 14.04 " * {this.state.lettersPrice} - <br /><span id="price" className="text-danger"></span></h6>
                         <div className="form-group">
-                            <input className="form-control" placeholder="Стойност на покупката *" onChange={this.priceHandler} name="price" type="" maxLength="10" />
+                            <input className="form-control" placeholder="Стойност на покупката *" onChange={this.priceHandler} name="price" step="0.01" min="0" lang="en"  type="number" maxLength="10" />
                         </div>
                     </div>
 
@@ -346,7 +351,7 @@ export default class Register extends Component {
 
                     <div className="col-md-12">
                         <div className="form-group">
-                            {this.state.loading ? <Loader /> : <input value="Register code" className={this.state.submitButton} type="submit" />}
+                            {this.state.loading ? <Loader /> : this.state.submitButton === "btn btn-primary" ? <input value="Register code" className={this.state.submitButton} type="submit" /> : <input value="Invalid inputs" className={this.state.submitButton} type="" readOnly /> }
                             <span className="text-danger" id="errorHolder"></span>
                         </div>
                     </div>
