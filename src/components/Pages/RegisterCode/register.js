@@ -15,7 +15,8 @@ export default class Register extends Component {
             codeValid: false,
             lettersEmail: 0,
             lettersPrice: 0,
-            submitButton: "btn btn-warning disabled"
+            submitButton: "btn btn-warning disabled",
+            alreadyRegistered: false
         }
     }
 
@@ -68,6 +69,16 @@ export default class Register extends Component {
                         server_error = true;
                         this.setState({
                             server_problem: true
+                        });
+                    }
+
+                    if (data === "already registered") {
+                        this.setState({
+                            alreadyRegistered: true
+                        });
+                    } else {
+                        this.setState({
+                            alreadyRegistered: false
                         });
                     }
                     error.innerHTML += `${data}<br/>`;
@@ -288,6 +299,18 @@ export default class Register extends Component {
     }
 
     render() {
+        if (this.state.alreadyRegistered) {
+            return (<div className="success-register">
+                <br />
+                <br />
+                <br />
+
+                <h1 className="text-success">
+                    The email is already registered
+                </h1>
+            </div>)
+        }
+
         if (this.state.registerSuccess) {
             return (<div className="success-register">
                 <br />

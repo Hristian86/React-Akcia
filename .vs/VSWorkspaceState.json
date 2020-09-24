@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\BaseUrl",
     "\\src\\components\\Pages",
     "\\src\\components\\Pages\\Home",
-    "\\src\\components\\Pages\\Home\\header-no-promotion-comp",
     "\\src\\components\\Pages\\Home\\PromotionLoader",
     "\\src\\components\\Pages\\Home\\Slider",
     "\\src\\components\\Pages\\RegisterCode",
     "\\src\\components\\Pages\\Winners"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\src\\components\\Pages\\RegisterCode\\register.js",
   "PreviewInSolutionExplorer": false
 }
