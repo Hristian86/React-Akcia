@@ -8,8 +8,8 @@ const Promotion = () => {
 
         </div>
 
-        <h2 className="color-change-head">Регистрирайте касовия си бон и участвайте в нашата томбола</h2>
-        <p className="margin-main-text">Не пропускайте, да се включите в томболата и да спечелите чудесна награда.</p>
+        <h2 className="color-change-head">Регистрирайте касовия си бон и участвайте в нашата промоция</h2>
+        <p className="margin-main-text">Не пропускайте, да се включите в нашата промоцията и да спечелите чудесна награда.</p>
         <p className="margin-button"><a href="registercode" className="btn btn-primary with-arrow">Запишете се за участие<i className="icon-arrow-right"></i></a></p>
 
     </div>

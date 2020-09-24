@@ -139,11 +139,11 @@ export default class navbar extends Component {
         if (true) {
             return (
                 <nav className="navbar navbar-default main-navbar" >
-                    <div className="container main-container" id="fh5co-header">
+                    <div className="container main-container" >
                         <div className="container main-container">
     
     <div className="navbar-header">
-                            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <button type="button" className="navbar-toggle collapsed" style={{'marginTop':'30px'}} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                 <span className="sr-only">Toggle navigation</span>
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
@@ -162,13 +162,13 @@ export default class navbar extends Component {
                             
                             <ul className="nav navbar-nav navbar-right">
 
-                                <li className="cta"><h3 className="h3-container"><a href="/registercode" className="nav-link-color links-size">Активни промоции</a></h3></li>
+                                <li className="cta"><h4 className="h3-container"><a href="/registercode" className="nav-link-color links-size">Активни промоции</a></h4></li>
                                 {/*<li className="call"><a href="tel://123456789" className="nav-link-color"><i className="icon-phone nav-link-color"></i> +1 123 456 789</a></li>*/}
 
 
-                                    <li className="cta"><h3 className="h3-container"><a href="/RegisterCode" onClick={this.winnersCookieSet} className="nav-link-color links-size">Победители</a></h3> </li>
+                                    <li className="cta"><h4 className="h3-container"><a href="/RegisterCode" onClick={this.winnersCookieSet} className="nav-link-color links-size">Победители</a></h4> </li>
 
-                                    <li className="cta"><h3 className="h3-container"><a href="/Contact" className="nav-link-color links-size">За връзка</a></h3></li>
+                                    <li className="cta"><h4 className="h3-container"><a href="/Contact" className="nav-link-color links-size">За връзка</a></h4></li>
 
 
                                 {/*{this.state.isLoged ? <li className="cta"><a href="/AdminPage" className="nav-link-color">AdminPage</a></li> : null}

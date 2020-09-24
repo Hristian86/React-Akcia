@@ -15,7 +15,7 @@ export default class PromotionList extends Component {
                         <img src="./images/present.jpg" alt="" className="img-responsive" />
                     </figure>
                     <div className="fh5co-copy">
-                        <h3>Участвайте</h3>
+                        <h3 className="margin-main-text" style={{'color':'white'}}>Участвайте</h3>
                         <span className="fh5co-date">в играта</span>
                         <p>Имате шанс да спечелите страхотни награди</p>
                     </div>

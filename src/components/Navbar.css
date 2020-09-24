@@ -28,6 +28,7 @@
 }
 
 .h3-container {
+    margin-top:28px;
     margin-bottom: 0px !important;
     padding-bottom: 0px !important;
     padding-top:16px;
@@ -54,5 +55,6 @@
     background-color: black !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
+    
 }

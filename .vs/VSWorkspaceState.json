@@ -1,17 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
-    "\\public\\images",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\BaseUrl",
     "\\src\\components\\Pages",
     "\\src\\components\\Pages\\Home",
     "\\src\\components\\Pages\\Home\\header-no-promotion-comp",
+    "\\src\\components\\Pages\\Home\\PromotionLoader",
     "\\src\\components\\Pages\\Home\\Slider",
-    "\\src\\components\\Pages\\RegisterCode"
+    "\\src\\components\\Pages\\RegisterCode",
+    "\\src\\components\\Pages\\Winners"
   ],
-  "SelectedNode": "\\src\\components\\Pages\\RegisterCode\\register.js",
+  "SelectedNode": "\\src\\components\\Pages\\Home\\Home.js",
   "PreviewInSolutionExplorer": false
 }
