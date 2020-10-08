@@ -6,7 +6,7 @@ const url = (parametar) => {
 
     const herokuDotNet = "https://react-back-end-serv2.herokuapp.com/api/";
 
-    return aspDotNetCore + parametar;
+    return hostedUrl + parametar;
 }
 
 export default url;
