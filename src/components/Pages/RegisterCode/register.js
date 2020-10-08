@@ -57,9 +57,36 @@ export default class Register extends Component {
                     loading: false
                 });
 
-                //console.log(result);
+                console.log(result);
+                let res = null;
+                if (result.errors) {
 
-                let res = result.error.split(",");
+                    //from regex on back end side
+                    let arr = [];
+                    if (result.errors.email) {
+
+                        let resultes = result.errors.email.toString();
+                        let finalRes = resultes.split("^");
+                        arr.push(finalRes[0]);
+                        res = arr;
+                    } else if (result.errors.code) {
+
+                        let resultes = result.errors.code.toString();
+                        let finalRes = resultes.split("^");
+                        arr.push(finalRes[0]);
+                        res = arr;
+
+                    } else if (result.errors.date) {
+
+                        let resultes = result.errors.date.toString();
+                        let finalRes = resultes.split("^");
+                        arr.push(finalRes[0]);
+                        res = arr;
+                    }
+
+                } else {
+                    res = result.error.split(",");
+                }
 
                 const error = document.getElementById('errorHolder');
                 error.innerHTML = `<br />`;
@@ -360,7 +387,7 @@ export default class Register extends Component {
                     <div className="col-md-8">
                         <h6 style={{ 'float': 'left', 'marginBottom': '2px', 'paddingBottom': '0px', 'height': '26px' }}>Самата стойност, например: " 27 " или " 14.04 " * {this.state.lettersPrice} - <br /><span id="price" className="text-danger"></span></h6>
                         <div className="form-group">
-                            <input className="form-control" placeholder="Стойност на покупката *" onChange={this.priceHandler} name="price" step="0.01" min="0" lang="en"  type="number" maxLength="10" />
+                            <input className="form-control" placeholder="Стойност на покупката *" onChange={this.priceHandler} name="price" step="0.01" min="0" lang="en" type="number" maxLength="10" />
                         </div>
                     </div>
 
@@ -374,7 +401,7 @@ export default class Register extends Component {
 
                     <div className="col-md-12">
                         <div className="form-group">
-                            {this.state.loading ? <Loader /> : this.state.submitButton === "btn btn-primary" ? <input value="Register code" className={this.state.submitButton} type="submit" /> : <input value="Invalid inputs" className={this.state.submitButton} type="" readOnly /> }
+                            {this.state.loading ? <Loader /> : this.state.submitButton === "btn btn-primary" ? <input value="Register code" className={this.state.submitButton} type="submit" /> : <input value="Invalid inputs" className={this.state.submitButton} type="" readOnly />}
                             <span className="text-danger" id="errorHolder"></span>
                         </div>
                     </div>
