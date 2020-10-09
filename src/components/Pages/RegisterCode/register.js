@@ -69,6 +69,7 @@ export default class Register extends Component {
                         let finalRes = resultes.split("^");
                         arr.push(finalRes[0]);
                         res = arr;
+
                     } else if (result.errors.code) {
 
                         let resultes = result.errors.code.toString();
@@ -79,6 +80,13 @@ export default class Register extends Component {
                     } else if (result.errors.date) {
 
                         let resultes = result.errors.date.toString();
+                        let finalRes = resultes.split("^");
+                        arr.push(finalRes[0]);
+                        res = arr;
+
+                    } else if (result.errors.price) {
+
+                        let resultes = result.errors.price.toString();
                         let finalRes = resultes.split("^");
                         arr.push(finalRes[0]);
                         res = arr;

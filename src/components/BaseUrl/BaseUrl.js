@@ -6,7 +6,13 @@ const url = (parametar) => {
 
     const herokuDotNet = "https://react-back-end-serv2.herokuapp.com/api/";
 
-    return herokuDotNet + parametar;
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+        // dev code
+        return aspDotNetCore + parametar;
+    } else {
+        // production code
+        return herokuDotNet + parametar;
+    }
 }
 
 export default url;
